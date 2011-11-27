@@ -22,6 +22,7 @@ affiliation among the states.
 ## Gems & Tools from Course
 
 The following gems and tools covered in this course were used for the final project:
+
 * Ruby (of course)
 * Rake
 * Guard
@@ -37,6 +38,7 @@ The following gems and tools covered in this course were used for the final proj
 ## New Gems & Tools
 
 I also discovered some new gems and tools to help build site, which include the following:
+
 * [Geocoder](http://www.rubygeocoder.com/) - Ruby geocoding gem
 * [DataMapper](datamapper.org) - Ruby-based Object Relational Mapper (ORM) and alternative to ActiveRecord
 * [Google Geochart](http://code.google.com/apis/chart/interactive/docs/gallery/geochart.html) - JavaScript library used to create heatmap chart
@@ -87,6 +89,7 @@ One thing you will notice about this application is that data from many of the s
 Furthermore, since most (if not all) users of this app are located in the Seattle area, most of the
 calculation will only affect Washington state. To get around this problem, I used the following proxy
 servers to replicate form submissions from other areas of the country:
+
 * http://freeproxyserver.net/
 * http://www.publicproxyservers.com/proxy/list1.html
 
