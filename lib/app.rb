@@ -14,7 +14,6 @@ class PollTaker
   property  :id,            Serial
   property  :ip_address,    String
   property  :city,          String
-  property  :state_short,   String
   property  :state,         String
   property  :score,         Integer
   property  :party,         String
@@ -69,12 +68,12 @@ post '/show' do
   end
 
   city = request.location.city
-  state_short = request.location.state
-  state = full_state_name(state_short)
-  @location = city + ', ' + state_short
+  state_unnormalized = request.location.state
+  state = state_unnormalized.strip.length == 2 ? full_state_name(state_unnormalized) : state_unnormalized
+  @location = city + ', ' + state
 
   # Add entry to database and render "show" template
-  poll_taker = PollTaker.create( :ip_address => request.ip, :city => city, :state_short => state_short, :state => state, :score => submitted_score, :party => @party_affiliation )
+  poll_taker = PollTaker.create( :ip_address => request.ip, :city => city, :state => state, :score => submitted_score, :party => @party_affiliation )
 
   # Data used in heat map
   scores_by_state
@@ -105,7 +104,7 @@ def scores_by_state
 end
 
 # Google Geochart requires the full state name to create the DataTable used to populate the chart.
-# Unfortunately, Geocoder only returns the two-letter abbreviation for each state, which means that
+# Unfortunately, Geocoder *sometimes* returns the two-letter abbreviation for each state, which means that
 # a method must be used to convert the abbreviated version to the full state name.
 def full_state_name(state_short)
   case state_short
