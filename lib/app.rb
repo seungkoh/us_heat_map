@@ -20,10 +20,8 @@ class PollTaker
   property  :party,         String
 end
 
-# Apply changes to DB schema every time model is loaded in development environment
-configure :development do  
-  DataMapper.auto_upgrade!  
-end  
+# Apply changes to DB schema every time model is updated
+DataMapper.auto_upgrade!  
 
 set :views, settings.root + '/../views'
 set :public_folder, settings.root + '/../public'
