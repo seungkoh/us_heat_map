@@ -1,0 +1,135 @@
+%h1= @title
+%p
+  Please answer the simple questionaire below, which will calculate the political party with which you most identify.
+%form#questionaire{ :name => "questionaire", :action => "/show", :method => "post" }
+  %ol
+    %li
+      Are you going to vote for Obama in 2012?
+      %br/
+      %input{ :name => "post[obama]", :type => "radio", :value => "4", :required => "required" }/
+      Yes
+      %input{ :name => "post[obama]", :type => "radio", :value => "0", :required => "required" }/
+      No
+      %input{ :name => "post[obama]", :type => "radio", :value => "2", :required => "required" }/
+      Undecided
+    %li
+      People who make more than $200,000 a year should be taxed more than those who make less than this amount.
+      %br/
+      %input{ :name => "post[tax]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[tax]", :type => "radio", :value => "3", :required => "required" }/
+      Agree
+      %input{ :name => "post[tax]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[tax]", :type => "radio", :value => "1", :required => "required" }/
+      Disagree
+      %input{ :name => "post[tax]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Disagree
+    %li
+      Universal healthcare is a bad idea.
+      %br/
+      %input{ :name => "post[healthcare]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[healthcare]", :type => "radio", :value => "1", :required => "required" }/
+      Agree
+      %input{ :name => "post[healthcare]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[healthcare]", :type => "radio", :value => "3", :required => "required" }/
+      Disagree
+      %input{ :name => "post[healthcare]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Disagree
+    %li
+      Abortion is murder because life begins at conception.
+      %br/
+      %input{ :name => "post[abortion]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[abortion]", :type => "radio", :value => "1", :required => "required" }/
+      Agree
+      %input{ :name => "post[abortion]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[abortion]", :type => "radio", :value => "3", :required => "required" }/
+      Disagree
+      %input{ :name => "post[abortion]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Disagree
+    %li
+      Homosexuals have the legal right to marriage.
+      %br/
+      %input{ :name => "post[gay]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[gay]", :type => "radio", :value => "3", :required => "required" }/
+      Agree
+      %input{ :name => "post[gay]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[gay]", :type => "radio", :value => "1", :required => "required" }/
+      Disagree
+      %input{ :name => "post[gay]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Disagree
+    %li
+      Alternative energy sources are a better option than domestic offshore drilling.
+      %br/
+      %input{ :name => "post[energy]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[energy]", :type => "radio", :value => "3", :required => "required" }/
+      Agree
+      %input{ :name => "post[energy]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[energy]", :type => "radio", :value => "1", :required => "required" }/
+      Disagree
+      %input{ :name => "post[energy]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Disagree
+    %li
+      The government should not enforce stricter gun laws because we have a right to carry them according to the Constitution.
+      %br/
+      %input{ :name => "post[gun]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[gun]", :type => "radio", :value => "1", :required => "required" }/
+      Agree
+      %input{ :name => "post[gun]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[gun]", :type => "radio", :value => "3", :required => "required" }/
+      Disagree
+      %input{ :name => "post[gun]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Disagree
+    %li
+      Unions are necessary to protect worker rights.
+      %br/
+      %input{ :name => "post[union]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[union]", :type => "radio", :value => "3", :required => "required" }/
+      Agree
+      %input{ :name => "post[union]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[union]", :type => "radio", :value => "1", :required => "required" }/
+      Disagree
+      %input{ :name => "post[union]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Disagree
+    %li
+      It is important for the US to occupy the Middle East in order to secure the region against terrorists.
+      %br/
+      %input{ :name => "post[foreign]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[foreign]", :type => "radio", :value => "1", :required => "required" }/
+      Agree
+      %input{ :name => "post[foreign]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[foreign]", :type => "radio", :value => "3", :required => "required" }/
+      Disagree
+      %input{ :name => "post[foreign]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Disagree
+    %li
+      Free market capitalism is the best way to promote economic prosperity.
+      %br/
+      %input{ :name => "post[capitalism]", :type => "radio", :value => "0", :required => "required" }/
+      Strongly Agree
+      %input{ :name => "post[capitalism]", :type => "radio", :value => "1", :required => "required" }/
+      Agree
+      %input{ :name => "post[capitalism]", :type => "radio", :value => "2", :required => "required" }/
+      Neither
+      %input{ :name => "post[capitalism]", :type => "radio", :value => "3", :required => "required" }/
+      Disagree
+      %input{ :name => "post[capitalism]", :type => "radio", :value => "4", :required => "required" }/
+      Strongly Disagree            
+  %input{ :type => "submit", :value => "Submit" }/
+
+%br/
+%a{:href => "/map"} Check out the survey results

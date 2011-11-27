@@ -1,0 +1,44 @@
+%h1 Survey Results
+%p
+  Based on your questionaire responses, we found that you are a
+  %b= @party_affiliation
+  from (or near)
+  %b= @location + '.'
+%p 
+  = @party_description
+%p
+  Check out the map below to see how you compare to the rest of the country:
+  #map_canvas
+%script{ :type => 'text/javascript', :src => 'https://www.google.com/jsapi' }
+%script{ :type => "text/javascript" }
+  :plain
+    google.load('visualization', '1', {'packages': ['geochart']});
+    google.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+      var data = new google.visualization.DataTable();
+      
+      var scores_by_state = #{@scores_by_state}
+      data.addRows(scores_by_state.length)
+      data.addColumn('string', 'State');
+      data.addColumn('number', 'Average Score');
+      
+      for(var i = 0; i < scores_by_state.length; i++)
+      {
+        data.setValue(i, 0, scores_by_state[i][0]);
+        data.setValue(i, 1, scores_by_state[i][1]);
+      }
+      
+      var options = {region:          'US',
+                     resolution:      'provinces',
+                     backgroundColor: '#CCC',
+                     colors:          ['red','blue'],
+                     width:           500,
+                     height:          370};
+
+      var container = document.getElementById('map_canvas');
+      var geochart = new google.visualization.GeoChart(container);
+      geochart.draw(data, options);
+    };
+%br/
+%a{:href => "/"} Go back

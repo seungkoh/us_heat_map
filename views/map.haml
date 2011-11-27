@@ -1,0 +1,40 @@
+%h1 U.S. Political Affiliation Heatmap
+%p
+  The heatmap below displays the average survey scores on a per-state basis.
+  The states closer to red are relatively more Republican and the states closer to blue are relatively more Democratic.
+  Unfortunately, the charting tool used does not allow setting absolute values for high and low baselines,
+  which is why the endpoints of the legend may not be 0 and 100.
+  #map_canvas
+%script{ :type => 'text/javascript', :src => 'https://www.google.com/jsapi' }
+%script{ :type => "text/javascript" }
+  :plain
+    google.load('visualization', '1', {'packages': ['geochart']});
+    google.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+      var data = new google.visualization.DataTable();
+      
+      var scores_by_state = #{@scores_by_state}
+      data.addRows(scores_by_state.length)
+      data.addColumn('string', 'State');
+      data.addColumn('number', 'Average Score');
+      
+      for(var i = 0; i < scores_by_state.length; i++)
+      {
+        data.setValue(i, 0, scores_by_state[i][0]);
+        data.setValue(i, 1, scores_by_state[i][1]);
+      }
+      
+      var options = {region:          'US',
+                     resolution:      'provinces',
+                     backgroundColor: '#CCC',
+                     colors:          ['red','blue'],
+                     width:           800,
+                     height:          550};
+
+      var container = document.getElementById('map_canvas');
+      var geochart = new google.visualization.GeoChart(container);
+      geochart.draw(data, options);
+    };
+%br/
+%a{:href => "/"} Go back
